@@ -2,7 +2,7 @@
 
 
 
-\### Anti-Counterfeit Product Identification System using Blockchain
+Anti-Counterfeit Product Identification System using Blockchain
 
 
 
@@ -68,15 +68,15 @@ The system enables manufacturers, suppliers, retailers, and consumers to:
 
 Frontend (React)
 
-&#x20;       ↓
+\&#x20;       ↓
 
 Backend API (Node.js + Express)
 
-&#x20;       ↓
+\&#x20;       ↓
 
 PostgreSQL Database  ←→  Blockchain (Solidity Smart Contract)
 
-&#x20;       ↓
+\&#x20;       ↓
 
 File Storage (Images)
 
@@ -158,7 +158,7 @@ Authenticity Ledger/
 
 ├── identeefi-backend-node/        # Node.js backend
 
-├── identeefi-postgres-database/   # SQL schema \& scripts
+├── identeefi-postgres-database/   # SQL schema \\\& scripts
 
 ├── identeefi-smartcontract-solidty/ # Solidity contracts
 
@@ -254,7 +254,7 @@ npm start
 
 ```sql
 
-\-- Run create\_table.txt or schema file
+\\-- Run create\\\_table.txt or schema file
 
 ```
 
@@ -300,13 +300,13 @@ Create `.env` files instead of hardcoding secrets.
 
 ```
 
-DB\_HOST=localhost
+DB\\\_HOST=localhost
 
-DB\_USER=your\_user
+DB\\\_USER=your\\\_user
 
-DB\_PASSWORD=your\_password
+DB\\\_PASSWORD=your\\\_password
 
-DB\_NAME=your\_db
+DB\\\_NAME=your\\\_db
 
 PORT=5000
 
@@ -320,9 +320,9 @@ PORT=5000
 
 ```
 
-REACT\_APP\_API\_URL=http://localhost:5000
+REACT\\\_APP\\\_API\\\_URL=http://localhost:5000
 
-REACT\_APP\_CONTRACT\_ADDRESS=your\_contract\_address
+REACT\\\_APP\\\_CONTRACT\\\_ADDRESS=your\\\_contract\\\_address
 
 ```
 
@@ -553,22 +553,6 @@ If you like this project:
 \* 🍴 Fork and improve
 
 \* 🧠 Suggest ideas
-
-
-
-\---
-
-
-
-\## 📬 Contact
-
-
-
-For queries or collaboration, feel free to reach out.
-
-
-
-\---
 
 
 
