@@ -1,62 +1,574 @@
-# Anti-Counterfeit Product Identification System Using Blockchain
-
-The Anti-Counterfeit Product Identification System Using Blockchain is an innovative solution that uses blockchain technology to combat counterfeit products in various industries. It uses QR codes, smart contracts, and the Ethereum network to provide a secure and transparent platform for tracking and verifying product authenticity. The system is significant in addressing global supply chain issues by reducing the prevalence of counterfeit goods and enhancing transparency and trust. 
-
-## Live Demo
-Here is a live demo of the full functionality of the project 
-
-[![Product Live Demo](https://img.youtube.com/vi/aWkgaCfMEn8/0.jpg)](https://www.youtube.com/watch?v=aWkgaCfMEn8 "Product Walkthrough")
-
-Here is a blog plost of this project:
-https://medium.com/p/68d23c7bc41c
+\# 🔐 Authenticity Ledger
 
 
-## Table of Contents
-- [Overview](#overview)
-- [Basic Walkthrough](#basic-walkthrough)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Project Setup](#project-setup)
 
-## Overview
-The Anti-Counterfeit Product Identification System Using Blockchain is a groundbreaking solution designed to combat global supply chain issues related to counterfeit products. It leverages the unique capabilities of blockchain technology to provide a secure and transparent platform for tracking and verifying the authenticity of products across various industries.
+\### Anti-Counterfeit Product Identification System using Blockchain
 
-The system uses QR codes, an overt technology that can be scanned by a smartphone app, to verify product information and origin. It employs smart contracts to store and execute product verification logic on the blockchain, ensuring tamper-proof data and trustless transactions. The Ethereum network serves as its decentralized database to store product information and status, accessible by authorized parties. A web interface, powered by React, allows users to interact with the system and view product information and history.
 
-The technologies used in this system include Solidity for smart contract development, Hardhat for Ethereum development environment, React for building the user interface, Node.js for backend development, and ethers.js for interacting with the Ethereum blockchain.
 
-This system is significant in solving global supply chain issues as it provides a reliable method to verify the authenticity of products, thereby reducing the prevalence of counterfeit goods. It enhances transparency and trust among stakeholders in the supply chain, from manufacturers to consumers. 
+\---
 
-## Basic Walkthrough
-- The `identeefi-backend-node` directory contains the codebase for the backend of the system.
-- The `identeefi-frontend-react` directory contains the codebase for the frontend of the system.
-- The `identeefi-postgres-database` directory contains the csv files for the backend database.
-- The `identeefi-smartcontract-solidity` directory contains the smart contract deployed to the Ethereum network.
 
-## Technologies Used
-- Solidity
-- Hardhat
-- React
-- Node.js
-- ethers.js
 
-## Features
-- **QR Codes**: The system uses QR codes as an overt technology that can be scanned by a smartphone app to verify the product information and origin.
-- **Smart Contracts**: The system uses smart contracts to store and execute the product verification logic on the blockchain, ensuring tamper-proof data and trustless transactions.
-- **Ethereum Network**: The system uses the Ethereum network as its decentralized database to store the product information and status, which can be accessed by authorized parties.
-- **Web Interface**: The system uses a web interface powered by React to allow users to interact with the system and view the product information and history.
+\## 📌 Overview
 
-## Project Setup
-To get started with this project, 
-1. Clone the repository.
-2. In `identeefi-postgres-database`, import the csv files to your own postgres database.
-3. In `identeefi-backend-node`, run `npm i` to install the dependencies and change the postgres credentials to your postgres crediantials and run `node postgres.js` to start the backend execution.
-4. In `identeefi-frontend-react`, run `npm i` to install the dependencies and run `npm start` to start localhost.
-5. You can inspect `identeefi-smartcontract-solidity` directory to view the smart contract details that is deployed to the Sepolia Testnet.
-6. To perform transactions, setup your Metamask wallet and connect your wallet to the Sepolia Tesnet Network and transact using SepoliaETH which can be obtained for free on Seplolia Faucet (https://sepoliafaucet.com/).
 
-For more information, you can view our user manual:
-[View User Manual](/user-manual.pdf)
+
+\*\*Authenticity Ledger\*\* is a decentralized product verification system designed to combat counterfeit goods by leveraging \*\*blockchain technology\*\*, \*\*QR-based verification\*\*, and \*\*supply chain tracking\*\*.
+
+
+
+The system enables manufacturers, suppliers, retailers, and consumers to:
+
+
+
+\* Register products on-chain
+
+\* Track product lifecycle across the supply chain
+
+\* Verify authenticity using QR codes
+
+\* Detect counterfeit or tampered products
+
+
+
+\---
+
+
+
+\## 🚀 Key Features
+
+
+
+\* 🔗 \*\*Blockchain-backed product identity (Ethereum / Sepolia)\*\*
+
+\* 📦 \*\*Supply chain tracking (Manufacturer → Supplier → Retailer → Consumer)\*\*
+
+\* 🔍 \*\*QR code-based product verification\*\*
+
+\* 👤 \*\*Role-based system (Admin, Manufacturer, Supplier, Retailer)\*\*
+
+\* 🖼️ \*\*Product \& profile image uploads\*\*
+
+\* 📜 \*\*Immutable product history\*\*
+
+\* 🌍 \*\*Location tracking (via geocoding API)\*\*
+
+
+
+\---
+
+
+
+\## 🏗️ System Architecture
+
+
+
+```
+
+Frontend (React)
+
+&#x20;       ↓
+
+Backend API (Node.js + Express)
+
+&#x20;       ↓
+
+PostgreSQL Database  ←→  Blockchain (Solidity Smart Contract)
+
+&#x20;       ↓
+
+File Storage (Images)
+
+```
+
+
+
+\---
+
+
+
+\## 🧰 Tech Stack
+
+
+
+\### Frontend
+
+
+
+\* React.js
+
+\* Material UI (MUI)
+
+\* Axios
+
+\* QR Code Generator
+
+
+
+\### Backend
+
+
+
+\* Node.js
+
+\* Express.js
+
+\* Multer (file uploads)
+
+\* PostgreSQL
+
+
+
+\### Blockchain
+
+
+
+\* Solidity
+
+\* Hardhat
+
+\* Ethereum (Sepolia testnet)
+
+
+
+\### Database
+
+
+
+\* PostgreSQL
+
+
+
+\---
+
+
+
+\## 📂 Project Structure
+
+
+
+```
+
+Authenticity Ledger/
+
+│
+
+├── identeefi-frontend-react/      # React frontend
+
+├── identeefi-backend-node/        # Node.js backend
+
+├── identeefi-postgres-database/   # SQL schema \& scripts
+
+├── identeefi-smartcontract-solidty/ # Solidity contracts
+
+│
+
+├── README.md
+
+├── user-manual.pdf
+
+└── CLAUDE.md
+
+```
+
+
+
+\---
+
+
+
+\## ⚙️ Setup \& Installation
+
+
+
+\### 🔹 1. Clone the repository
+
+
+
+```bash
+
+git clone https://github.com/your-username/Authenticity-Ledger.git
+
+cd Authenticity-Ledger
+
+```
+
+
+
+\---
+
+
+
+\### 🔹 2. Backend Setup
+
+
+
+```bash
+
+cd identeefi-backend-node
+
+npm install
+
+node postgres.js
+
+```
+
+
+
+\---
+
+
+
+\### 🔹 3. Frontend Setup
+
+
+
+```bash
+
+cd identeefi-frontend-react
+
+npm install
+
+npm start
+
+```
+
+
+
+\---
+
+
+
+\### 🔹 4. Database Setup
+
+
+
+\* Install PostgreSQL
+
+\* Create database
+
+\* Run SQL script:
+
+
+
+```sql
+
+\-- Run create\_table.txt or schema file
+
+```
+
+
+
+\---
+
+
+
+\### 🔹 5. Smart Contract Setup
+
+
+
+```bash
+
+cd identeefi-smartcontract-solidty
+
+npm install
+
+npx hardhat compile
+
+npx hardhat run scripts/deploy.js --network sepolia
+
+```
+
+
+
+\---
+
+
+
+\## 🔐 Environment Configuration (IMPORTANT)
+
+
+
+Create `.env` files instead of hardcoding secrets.
+
+
+
+\### Backend `.env`
+
+
+
+```
+
+DB\_HOST=localhost
+
+DB\_USER=your\_user
+
+DB\_PASSWORD=your\_password
+
+DB\_NAME=your\_db
+
+PORT=5000
+
+```
+
+
+
+\### Frontend `.env`
+
+
+
+```
+
+REACT\_APP\_API\_URL=http://localhost:5000
+
+REACT\_APP\_CONTRACT\_ADDRESS=your\_contract\_address
+
+```
+
+
+
+\---
+
+
+
+\## 🔄 Workflow
+
+
+
+1\. Manufacturer registers product → stored on blockchain
+
+2\. QR code generated for product
+
+3\. Supplier updates product location/status
+
+4\. Retailer receives and updates product
+
+5\. Consumer scans QR → verifies authenticity
+
+
+
+\---
+
+
+
+\## ⚠️ Current Limitations (Prototype Stage)
+
+
+
+This project is a \*\*prototype\*\*, not production-ready yet.
+
+
+
+Known issues:
+
+
+
+\* ❌ Plaintext password authentication
+
+\* ❌ SQL injection risk
+
+\* ❌ No backend authorization middleware
+
+\* ❌ Smart contract lacks access control
+
+\* ❌ QR codes can be cloned
+
+\* ❌ Hardcoded API keys and secrets
+
+\* ❌ No automated tests or CI/CD
+
+
+
+\---
+
+
+
+\## 🛡️ Production Improvements (Recommended)
+
+
+
+\### Security
+
+
+
+\* Implement JWT authentication
+
+\* Hash passwords using bcrypt
+
+\* Use parameterized SQL queries
+
+\* Add backend role-based access control
+
+
+
+\### Blockchain
+
+
+
+\* Add role-based permissions (Ownable / AccessControl)
+
+\* Prevent duplicate product registration
+
+\* Emit events for all transactions
+
+
+
+\### Architecture
+
+
+
+\* Move secrets to `.env`
+
+\* Use cloud storage (AWS S3 / Cloudinary)
+
+\* Introduce service layer in backend
+
+\* Add API validation (Joi / Zod)
+
+
+
+\### DevOps
+
+
+
+\* Dockerize application
+
+\* Add CI/CD pipeline (GitHub Actions)
+
+\* Logging \& monitoring (Winston, Sentry)
+
+\* Add automated tests
+
+
+
+\---
+
+
+
+\## 🧪 Testing
+
+
+
+Currently manual testing is required.
+
+
+
+Suggested:
+
+
+
+\* Backend: Jest + Supertest
+
+\* Frontend: React Testing Library
+
+\* Smart Contracts: Hardhat tests
+
+
+
+\---
+
+
+
+\## 📊 Future Enhancements
+
+
+
+\* NFC-based secure tagging (anti-cloning)
+
+\* Mobile app for scanning
+
+\* Blockchain event indexing
+
+\* AI-based counterfeit detection
+
+\* Multi-chain support
+
+
+
+\---
+
+
+
+\## 🤝 Contribution Guidelines
+
+
+
+\* Create feature branch:
+
+&#x20; `feature/your-feature-name`
+
+\* Keep commits small and meaningful
+
+\* Avoid pushing secrets
+
+\* Test before submitting PR
+
+
+
+\---
+
+
+
+\## 📄 License
+
+
+
+This project is for academic and demonstration purposes.
+
+
+
+\---
+
+
+
+\## 👨‍💻 Author
+
+
+
+\*\*Nikhil Kumar\*\*
+
+
+
+\* C++, SQL, DSA
+
+\* Passionate about blockchain and backend systems
+
+
+
+\---
+
+
+
+\## ⭐ Support
+
+
+
+If you like this project:
+
+
+
+\* ⭐ Star the repository
+
+\* 🍴 Fork and improve
+
+\* 🧠 Suggest ideas
+
+
+
+\---
+
+
+
+\## 📬 Contact
+
+
+
+For queries or collaboration, feel free to reach out.
+
+
+
+\---
 
 
 
