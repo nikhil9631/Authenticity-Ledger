@@ -4,7 +4,7 @@ import { TextField, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { ethers } from "ethers";
-import axios from 'axios';
+import axios from '../../api/axios';
 import Geocode from "react-geocode";
 import dayjs from 'dayjs';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -60,7 +60,7 @@ const UpdateProductDetails = () => {
     const [loading, setLoading] = useState("");
 
 
-    const CONTRACT_ADDRESS = '0x62081f016446585cCC507528cc785980296b4Ccd';
+    const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
     const CONTRACT_ABI = abi.abi;
 
     const { auth } = useAuth();
@@ -136,7 +136,7 @@ const UpdateProductDetails = () => {
        
 
     const getUsername = async (e) => {
-        const res = await axios.get(`http://localhost:5000/profile/${auth.user}`)
+        const res = await axios.get(`/profile/${auth.user}`)
             .then(res => {
                 console.log(JSON.stringify(res?.data[0]));
                 setCurrName(res?.data[0].name);

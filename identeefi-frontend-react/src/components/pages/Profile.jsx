@@ -1,7 +1,7 @@
 import { Box, Paper, Avatar, Typography, Button } from '@mui/material';
 import bgImg from '../../img/bg.png';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../api/axios';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const Profile = () => {
     }
 
     const handleData = async (e) => {
-        const res = await axios.get(`http://localhost:5000/profile/${auth.user}`)
+        const res = await axios.get(`/profile/${auth.user}`)
             .then(res => {
                 console.log(JSON.stringify(res?.data[0]));
                 setName(res?.data[0].name);

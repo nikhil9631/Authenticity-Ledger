@@ -3,7 +3,7 @@ import { TextField, Box, Paper, Typography, Autocomplete, Button } from '@mui/ma
 import React from 'react'
 import { useRef, useState, useEffect } from 'react';
 import bgImg from '../../img/bg.png';
-import axios from 'axios';
+import axios from '../../api/axios';
 import { useNavigate } from 'react-router-dom';
 
 const options = ["manufacturer", "supplier", "retailer"]
@@ -43,7 +43,7 @@ const AddAccount = () => {
         const data = new FormData();
         data.append("image", image.file);
 
-        axios.post("http://localhost:5000/upload/profile", data, {
+        axios.post("/upload/profile", data, {
             headers: { "Content-Type": "multipart/form-data" }
         }).then(res => {
             console.log(res);
@@ -90,14 +90,14 @@ const AddAccount = () => {
                 "role" : role
               });
 
-            const res = await axios.post('http://localhost:5000/addaccount', accountData,
+            const res = await axios.post('/addaccount', accountData,
                 {
-                    headers: {'Content-Type': 'application/json'}, 
+                    headers: {'Content-Type': 'application/json'},
                 });
-            
+
             console.log(JSON.stringify(res.data));
 
-            const res2 = await axios.post('http://localhost:5000/addprofile', profileData,
+            const res2 = await axios.post('/addprofile', profileData,
                 {
                     headers: {'Content-Type': 'application/json'},
                 });

@@ -79,7 +79,7 @@ const UpdateProduct = () => {
     });
 
 
-    const CONTRACT_ADDRESS = '0x62081f016446585cCC507528cc785980296b4Ccd';
+    const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
     const CONTRACT_ABI = abi.abi;
 
     const { auth } = useAuth();

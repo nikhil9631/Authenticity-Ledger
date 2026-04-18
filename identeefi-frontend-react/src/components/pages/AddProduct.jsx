@@ -3,7 +3,7 @@ import bgImg from '../../img/bg.png';
 import { TextField, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { ethers } from "ethers";
-import axios from 'axios';
+import axios from '../../api/axios';
 import abi from '../../utils/Identeefi.json';
 import QRCode from 'qrcode.react';
 import dayjs from 'dayjs';
@@ -68,7 +68,7 @@ const AddProduct = () => {
     const [manuLocation, setManuLocation] = useState("");
     const [isUnique, setIsUnique] = useState(true);
 
-    const CONTRACT_ADDRESS  = '0x62081f016446585cCC507528cc785980296b4Ccd';
+    const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
     const contractABI = abi.abi;
 
     const { auth } = useAuth();
@@ -152,7 +152,7 @@ const AddProduct = () => {
     }
 
     const getUsername = async (e) => {
-        const res = await axios.get(`http://localhost:5000/profile/${auth.user}`)
+        const res = await axios.get(`/profile/${auth.user}`)
             .then(res => {
                 console.log(JSON.stringify(res?.data[0]));
                 setManuName(res?.data[0].name);
@@ -166,7 +166,7 @@ const AddProduct = () => {
         const data = new FormData();
         data.append("image", image.file);
 
-        axios.post("http://localhost:5000/upload/product", data, {
+        axios.post("/upload/product", data, {
             headers: { "Content-Type": "multipart/form-data" }
         }).then(res => {
             console.log(res);
@@ -230,7 +230,7 @@ const AddProduct = () => {
                 "brand": brand,
               });
 
-            const res = await axios.post('http://localhost:5000/addproduct', profileData,
+            const res = await axios.post('/addproduct', profileData,
                 {
                     headers: {'Content-Type': 'application/json'},
                 });
@@ -245,7 +245,7 @@ const AddProduct = () => {
     }
 
     const checkUnique = async () => {
-        const res = await axios.get("http://localhost:5000/product/serialNumber");
+        const res = await axios.get("/product/serialNumber");
 
         const existingSerialNumbers = res.data.map((product) => product.serialnumber);
         existingSerialNumbers.push(serialNumber);

@@ -12,7 +12,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-const LOGIN_URL = '/auth';
+const LOGIN_URL = '/auth/login';
 
 export default function Login() {
     const { setAuth } = useAuth();
@@ -35,39 +35,43 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log('user: ', user);
-        console.log('pwd: ', pwd);
-
         try {
-            const res = await axios.post(`${LOGIN_URL}/${user}/${pwd}`,
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                });
+            const res = await axios.post(
+                LOGIN_URL,
+                { username: user, password: pwd },
+                { headers: { 'Content-Type': 'application/json' } }
+            );
 
-            console.log(res?.data[0])
+            const token = res?.data?.token;
+            const role = res?.data?.user?.role;
+            const username = res?.data?.user?.username;
 
-            if (res?.data.length === 0) {
+            if (!token || !role) {
                 setErrMsg('Login Failed. Please try again later.');
-                // errRef.current.focus();
-            } else {
-                const role = res?.data[0].role;
-                setAuth({ user, pwd, role })
-                setUser('');
-                setPwd('');
-                navigate(`/${role}`, { replace: true });
-
+                return;
             }
+
+            // Persist JWT for subsequent authenticated requests.
+            localStorage.setItem('token', token);
+            setAuth({ user: username, role, token });
+
+            // Do not retain the plaintext password in state.
+            setUser('');
+            setPwd('');
+            navigate(`/${role}`, { replace: true });
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('Server is down. Please try again later.');
             } else if (err.response?.status === 400) {
                 setErrMsg('Invalid username or password.');
             } else if (err.response?.status === 401) {
-                setErrMsg('Unauthorized access.');
+                setErrMsg('Invalid username or password.');
             } else {
                 setErrMsg('Login Failed. Please try again later.');
             }
-            errRef.current.focus();
+            if (errRef.current) {
+                errRef.current.focus();
+            }
         }
     };
 
