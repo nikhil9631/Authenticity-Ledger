@@ -6,7 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ScannerPage = () => {
-    const CONTRACT_ADDRESS  = '0x62081f016446585cCC507528cc785980296b4Ccd';
+    const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
     const [qrData, setQrData] = useState('');
 
     const { auth } = useAuth();

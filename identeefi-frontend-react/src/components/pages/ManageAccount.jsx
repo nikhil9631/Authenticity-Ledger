@@ -1,6 +1,6 @@
 import { Box, Paper, Typography } from '@mui/material';
 import bgImg from '../../img/bg.png';
-import axios from 'axios';
+import axios from '../../api/axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 import { useState, useEffect } from 'react';
@@ -31,7 +31,7 @@ const ManageAccount = () => {
     }, []);
 
     const handleData = async (e) => {
-        const res = await axios.get('http://localhost:5000/profileAll')
+        const res = await axios.get('/profileAll')
             .then(res => {
                 console.log(JSON.stringify(res.data));
                 setRows(res.data);
